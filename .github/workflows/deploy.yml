@@ -22,3 +22,5 @@ jobs:
         with:
           branch: gh-pages
           folder: build
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
