@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/react-typescript-feedback/static/css/main.33457163.css",
+    "main.js": "/react-typescript-feedback/static/js/main.02035b0e.js",
+    "index.html": "/react-typescript-feedback/index.html",
+    "main.33457163.css.map": "/react-typescript-feedback/static/css/main.33457163.css.map",
+    "main.02035b0e.js.map": "/react-typescript-feedback/static/js/main.02035b0e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.33457163.css",
+    "static/js/main.02035b0e.js"
+  ]
+}
