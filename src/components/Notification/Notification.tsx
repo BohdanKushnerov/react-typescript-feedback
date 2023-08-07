@@ -4,10 +4,12 @@ type NotificationProps = {
   message: string;
 };
 
-export const Notification = ({ message }: NotificationProps) => {
+const Notification = ({ message }: NotificationProps) => {
   return (
     <div>
       <h2 className={styles.title}>{message}</h2>
     </div>
   );
 };
+
+export default Notification;

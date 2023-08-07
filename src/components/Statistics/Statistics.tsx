@@ -12,7 +12,7 @@ type StatisticsProps = {
   positivePercentage: number;
 };
 
-export const Statistics = ({
+const Statistics = ({
   feedback: { good, neutral, bad },
   total,
   positivePercentage,
@@ -27,3 +27,5 @@ export const Statistics = ({
     </div>
   );
 };
+
+export default Statistics;

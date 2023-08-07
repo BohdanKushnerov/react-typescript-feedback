@@ -1,8 +1,8 @@
 import { useReducer } from 'react';
-import { Statistics } from './Statistics/Statistics';
-import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
-import { Section } from './Section/Section';
-import { Notification } from './Notification/Notification';
+import Statistics from './Statistics/Statistics';
+import FeedbackOptions from './FeedbackOptions/FeedbackOptions';
+import Section from './Section/Section';
+import Notification from './Notification/Notification';
 import styles from './App.module.css';
 
 // type Feedback = {
@@ -62,29 +62,23 @@ function App() {
     initialFeedbackState
   );
 
-  const handleIncrement = (option: any) => {
+  const handleIncrement = (option: FeedbackKeys) => {
     dispatch({ type: 'increment', payload: option });
   };
 
-  const { good } = feedback;
+  const sum = Object.values(feedback).reduce((acc, item) => acc + item, 0);
 
-  const sum: number = Object.values(feedback).reduce(
-    (acc: number, item: unknown) => acc + (item as number),
-    0
-  );
+  const positivePercentage = Math.round((feedback.good * 100) / sum);
 
-  const countPositiveFeedbackPercentage = () => {
-    if (!good) return 0;
-    else {
-      return Math.round((good * 100) / sum);
-    }
-  };
+  const feedbackKeysArray: FeedbackKeys[] = Object.keys(
+    feedback
+  ) as FeedbackKeys[];
 
   return (
     <div className={styles.container}>
       <Section title={'Please leave feedback'}>
         <FeedbackOptions
-          options={Object.keys(feedback)}
+          options={feedbackKeysArray}
           onLeaveFeedback={handleIncrement}
         />
       </Section>
@@ -94,7 +88,7 @@ function App() {
           <Statistics
             feedback={feedback}
             total={sum}
-            positivePercentage={countPositiveFeedbackPercentage()}
+            positivePercentage={positivePercentage}
           />
         </Section>
       ) : (

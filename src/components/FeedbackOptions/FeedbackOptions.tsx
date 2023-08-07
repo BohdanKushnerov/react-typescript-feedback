@@ -1,27 +1,33 @@
 import styles from './FeedbackOptions.module.css';
 
-type FeedbackOptionsProps = {
-  options: string[];
-  onLeaveFeedback: (option: string) => void;
-};
+enum FeedbackKeys {
+  Good = 'good',
+  Neutral = 'neutral',
+  Bad = 'bad',
+}
 
-export const FeedbackOptions = ({
+interface FeedbackOptionsProps {
+  options: FeedbackKeys[];
+  onLeaveFeedback: (option: FeedbackKeys) => void;
+}
+
+const FeedbackOptions: React.FC<FeedbackOptionsProps> = ({
   options,
   onLeaveFeedback,
-}: FeedbackOptionsProps) => {
+}) => {
   return (
     <div className={styles.wrap}>
-      {options.map(option => {
-        return (
-          <button
-            className={styles.btn}
-            key={option}
-            onClick={() => onLeaveFeedback(option)}
-          >
-            {option}
-          </button>
-        );
-      })}
+      {options.map(option => (
+        <button
+          className={styles.btn}
+          key={option}
+          onClick={() => onLeaveFeedback(option)}
+        >
+          {option}
+        </button>
+      ))}
     </div>
   );
 };
+
+export default FeedbackOptions;

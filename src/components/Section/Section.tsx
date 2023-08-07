@@ -5,7 +5,7 @@ type SectionProps = {
   children: JSX.Element;
 };
 
-export const Section = ({ title, children }: SectionProps) => {
+const Section = ({ title, children }: SectionProps) => {
   return (
     <div className={css.wrap}>
       <h2 className={css.title}>{title}</h2>
@@ -13,3 +13,5 @@ export const Section = ({ title, children }: SectionProps) => {
     </div>
   );
 };
+
+export default Section;
